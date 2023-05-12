@@ -1,0 +1,101 @@
+body {
+  background-color: rgb(182, 182, 241);
+}
+.main-div{
+  display: flex;
+}
+.left-nav{
+  background-color: #c7ece0;
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px;
+}
+.side-button{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100px; 
+  flex: 1;
+
+}
+button{
+  width: 100px;
+  height: 30px;
+  margin-bottom: 15px;
+  cursor: pointer;
+}
+.sub{
+  width: 30px;
+  height: 30px;
+  padding: auto;
+}
+.container input{
+  -webkit-appearance: none;
+  position: relative;
+  width: 50px;
+  height: 30px;
+  border-radius: 25px;
+  background-color: aliceblue;
+  transition: background .3s;
+  outline: none;
+  cursor: pointer;
+  display: inline-block;
+  flex-direction: row;
+}
+.container input::after{
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  border-radius: 50%;
+  height:1.25rem;
+  width: 1.25rem;
+  background-color: white;
+  transition: left .3s;
+}
+.container input:checked{
+  background-color: red;
+}
+.container input:checked::after{
+  left: 70%;
+}
+.middle{
+  
+    padding: 10px;
+    margin: 10px;
+    width: 500px;
+    height: 400px;
+  
+}
+
+
+
+
+
+
+.file-upload input[type="file"] {
+  display: none;
+}
+
+.file-upload label {
+  display: inline-block;
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.file-upload label:hover {
+  background-color: #3e8e41;
+}
+.file-upload {
+  flex-basis: calc(33.33% - 10px);
+  margin: 2px;
+  width: 150px;
+  height: 200px;
+}
