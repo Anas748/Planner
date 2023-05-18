@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="witdh = device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet" />
+
+    <title>Planner</title>
+</head>
+
+<body>
+    <div class="mainContainer">
+        <div class="left-nav">
+            <form id="search-form">
+                <input type="text" placeholder="Search.." name="search" id="search-input">
+                <button type="submit"><img src="/assets/icons8-search-16.png" alt="Search"></button>
+              </form>
+           
+            <button type="button" id="completed-button" class="side-button">
+                <i class="fas fa-check"></i>
+                <span>Completed Task</span>
+            </button>
+            <button type="button" id="upcoming-button" class="side-button">
+                <i class="fas fa-calendar-alt"></i>
+                <span>Upcoming Task</span>
+            </button>
+            <button type="button" id="flagged-button" class="side-button">
+                <i class="fas fa-flag"></i>
+                <span>Flagged</span>
+            </button>
+            <button type="button" id="return-button" class="side-button">
+                <i class="fas fa-arrow-left"></i>
+                <span>Return</span>
+            </button>
+        </div>
+        
+        <div id="result-all">
+            <div class="reminder">
+              <!-- Date, note, and files for the first reminder -->
+            </div>
+        </div>
+
+<!-- Include the allScript.js script for displaying reminders -->
+
+    </div>
+    <script src="/js/allScript.js"></script>
+</body>
+
+</html>
