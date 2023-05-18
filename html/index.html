@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="witdh = device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <title>Planner</title>
+</head>
+
+<body>
+    <div class="main-div">
+        <div class="left-nav">
+                <button type="button" id="all-button" class="side-button"> 
+                    <i class="fas fa-tasks"></i> 
+                    <span>All</span>
+                  </button>
+                  <button type="button" id="completed-button" class="side-button">
+                    <i class="fas fa-check"></i> 
+                    <span>Completed Task</span>
+                  </button>
+                  <button type="button" id="upcoming-button" class="side-button">
+                    <i class="fas fa-calendar-alt"></i> 
+                    <span>Upcoming Task</span>
+                  </button>
+                  <button type="button" id="flagged-button" class="side-button">
+                    <i class="fas fa-flag"></i> 
+                    <span>Flagged</span>
+                  </button>
+        </div>
+        <div class="middle">
+            <h1 class="h1">SET REMINDER</h1>
+            <div class="date-container">
+                <label for="date-input" id="date-label">Date:</label>
+                <input type="text-1" id="date-input" readonly />
+            </div>
+            <div class="note-container">
+                <h3>Note:</h3>
+                <textarea id="notes-input" placeholder="Enter your note here..."></textarea>
+            </div>
+            <div class="file-upload" id="drop-zone">
+                <p style="padding: 50px;">Drag and drop files here </br>or </br>click to select files</p>
+                <input type="file" id="file-input" name="file-input" multiple style="display:none;">
+            </div>
+            <div id="file-preview-container"></div>
+
+
+            <div class="container">
+                <input type="checkbox" id="flag-checkbox" class="flag-checkbox" />
+                <label class="toggle-button" for="flag-checkbox"></label>                
+                <button type="button" id="save">Save</button>
+            </div>
+        </div>
+            <div class="calendar">
+                <div class="month">
+                    <i class="fas fa-angle-left prev"></i>
+                    <div class="date">
+                        <h1></h1>
+                        <p></p>
+                    </div>
+                    <i class="fas fa-angle-right next"></i>
+                </div>
+                <div class="weekdays">
+                    <div>Sun</div>
+                    <div>Mon</div>
+                    <div>Tue</div>
+                    <div>Wed</div>
+                    <div>Thu</div>
+                    <div>Fri</div>
+                    <div>Sat</div>
+                </div>
+                <div class="days"></div>
+            </div>
+
+
+        </div>
+        
+    </div>
+    
+    <script src="/js/app.js"></script>
+</body>
+
+</html>
