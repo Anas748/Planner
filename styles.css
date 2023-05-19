@@ -1,0 +1,122 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #24292e;
+    color: white;
+    padding: 0;
+    margin: 0;
+}
+
+#app {
+    max-width: 90%;
+    margin: 2em auto;
+    padding: 20px;
+    background-color: #2f363d;
+    border: 1px solid #444d56;
+    border-radius: 6px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+.task-item.over {
+    border: 1px dashed #fff;
+}
+
+
+form {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #444d56;
+    padding-bottom: 20px;
+}
+input[type="date"]{
+    width: 60%;
+    padding: 10px;
+    margin: auto;
+    border: 1px solid #444d56;
+    border-radius: 6px;
+    background-color: #444d56;
+    color: white;
+}
+input[type="text"] {
+    width: 60%;
+    padding: 10px;
+
+   
+    margin: auto;
+    border: 1px solid #444d56;
+    border-radius: 6px;
+    background-color: #444d56;
+    color: white;
+}
+
+input[type="file"] {
+    margin-top: 10px;
+    color: white;
+}
+
+.task-item {
+    border: 1px solid #444d56;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 6px;
+    background-color: #444d56;
+}
+
+button {
+    padding: 5px 10px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-weight: bold;
+    margin-right: 5px;
+}
+
+button:hover {
+    opacity: 0.7;
+}
+
+button.complete-button {
+    background-color: #28a745;
+    color: white;
+}
+
+button.delete-button {
+    background-color: #cb2431;
+    color: white;
+}
+
+button.flag-button {
+    background-color: #f9c513;
+    color: black;
+}
+
+button.complete-button:hover {
+    background-color: #1b6c37;
+}
+
+button.delete-button:hover {
+    background-color: #9e1b2d;
+}
+
+button.flag-button:hover {
+    background-color: #cca707;
+}
+
+/* Responsive design */
+@media screen and (min-width: 480px) {
+    #app {
+        max-width: 75%;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    #app {
+        max-width: 60%;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    #app {
+        max-width: 50%;
+    }
+}
