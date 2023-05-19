@@ -60,33 +60,47 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    function addTaskToDOM(task) {
-        const taskDiv = document.createElement('div');
-        taskDiv.classList.add('task-item');
-        taskDiv.setAttribute('draggable', 'true'); // make it draggable
-        taskDiv.innerHTML = `
-            <p>Date: ${task.date}</p>
-            <p>Note: ${task.note}</p>
-            <p>File: ${task.fileName || 'No file attached'}</p>
-            ${task.fileName ? `<a href="${task.fileData}" download="${task.fileName}">Download</a>` : ''}
-            <button class="complete-button" data-date="${task.date}">Complete</button>
-            <button class="delete-button" data-date="${task.date}">Delete</button>
-            <button class="flag-button" data-date="${task.date}">${task.flagged ? 'Unflag' : 'Flag'}</button>
-        `;
-        taskDiv.addEventListener('dragstart', handleDragStart, false);
-        taskDiv.addEventListener('dragover', handleDragOver, false);
-        taskDiv.addEventListener('drop', handleDrop, false);
-    
-        if (task.flagged) {
-            flaggedTaskList.appendChild(taskDiv);
-        } else if (task.completed) {
-            completedTaskList.appendChild(taskDiv);
-        } else {
-            activeTaskList.appendChild(taskDiv);
-        }
+
+
+function addTaskToDOM(task) {
+    // Create a new 'div' element to hold the task.
+    const taskDiv = document.createElement('div');
+
+    // Add the 'task-item' class to the new div.
+    taskDiv.classList.add('task-item');
+
+    // Set the div to be draggable. This is used for the drag-and-drop functionality.
+    taskDiv.setAttribute('draggable', 'true');
+
+    // Add the task's details to the div. If the task has a file, also add a download link for the file.
+    taskDiv.innerHTML = `
+        <p>Date: ${task.date}</p>
+        <p>Note: ${task.note}</p>
+        <p>File: ${task.fileName || 'No file attached'}</p>
+        ${task.fileName ? `<a href="${task.fileData}" download="${task.fileName}">Download</a>` : ''}
+        <button class="complete-button" data-date="${task.date}">Complete</button>
+        <button class="delete-button" data-date="${task.date}">Delete</button>
+        <button class="flag-button" data-date="${task.date}">${task.flagged ? 'Unflag' : 'Flag'}</button>
+    `;
+
+    // Add event listeners to handle dragging and dropping of the task.
+    taskDiv.addEventListener('dragstart', handleDragStart, false);
+    taskDiv.addEventListener('dragover', handleDragOver, false);
+    taskDiv.addEventListener('drop', handleDrop, false);
+
+    // Add the new task div to the appropriate list.
+    if (task.flagged) {
+        flaggedTaskList.appendChild(taskDiv);
+    } else if (task.completed) {
+        completedTaskList.appendChild(taskDiv);
+    } else {
+        activeTaskList.appendChild(taskDiv);
     }
-    
-    let dragSrcEl = null;
+}
+
+// Create a variable to hold the element being dragged.
+let dragSrcEl = null;
+
     
     function handleDragStart(e) {
         dragSrcEl = this;
