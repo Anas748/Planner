@@ -14,8 +14,8 @@ app.on('ready', () => {
     useContentSize: true,
     width: 800,
     height: 600,
-    resizable: false,
-    fullscreen: false
+    resizable: true
+    
   });
 
   mainWindow.loadURL(`file://${__dirname}/index.html`);
