@@ -1,4 +1,6 @@
+//using the DOMContentLoaded event to make sure the HTML is fully parsed before running our script.
 document.addEventListener('DOMContentLoaded', function() {
+    // all the elements we'll need to interact with and store them in variables.
     const taskForm = document.getElementById('add-task-form');
     const activeTaskList = document.getElementById('active-task-list');
     const completedTaskList = document.getElementById('completed-task-list');
@@ -7,22 +9,29 @@ document.addEventListener('DOMContentLoaded', function() {
     const viewCompletedButton = document.getElementById('view-completed');
     const viewFlaggedButton = document.getElementById('view-flagged');
 
-    // Load tasks from localStorage
+    // saved tasks from the user's localStorage. If no tasks are saved, we default to an empty array.
     let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+
+    //iterate over each task in our list
     for (let task of tasks) {
         addTaskToDOM(task);
     }
 
+    // We're listening for the form submission event, so we can properly add new tasks.
     taskForm.addEventListener('submit', function(e) {
+        // We prevent the default form submission behavior.
         e.preventDefault();
 
+        // We grab the values from our form inputs.
         const date = document.getElementById('task-date').value;
         const note = document.getElementById('task-note').value;
         const fileInput = document.getElementById('task-file');
         const file = fileInput.files[0];
 
+        //using the FileReader API to handle the uploaded file.
         const reader = new FileReader();
         reader.onloadend = function() {
+            // We create a new task object with the provided values, and a base64 representation of the file if one was provided.
             const base64String = file ? reader.result : null;
             const task = {
                 date,
@@ -32,17 +41,21 @@ document.addEventListener('DOMContentLoaded', function() {
                 completed: false,
                 flagged: false
             };
+            //add our new task to the task array.
             tasks.push(task);
+            // We then add our task to the DOM.
             addTaskToDOM(task);
-            // Save tasks to localStorage
+            //saveing our new list of tasks back into localStorage.
             localStorage.setItem('tasks', JSON.stringify(tasks));
 
-            // Clear the form
+            //clear out the form for the next input.
             taskForm.reset();
         }
+        //starting the process of reading the file if one was provided.
         if (file) {
             reader.readAsDataURL(file);
         } else {
+            // If no file was provided, we manually trigger the onloadend event to continue with our process.
             reader.onloadend();
         }
     });
