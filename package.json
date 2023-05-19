@@ -21,6 +21,10 @@
   "dependencies": {
     "@fullcalendar/core": "^6.1.7",
     "@fullcalendar/daygrid": "^6.1.7",
-    "electron": "^24.3.1"
+    "electron": "^24.3.1",
+    "electron-builder": "^24.4.0",
+    "electron-packager": "^17.1.1",
+    "save": "^2.9.0",
+    "uuid": "^3.3.2"
   }
 }
